@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+httpx
+sentence-transformers
+torch
+faiss-cpu
+python-dotenv
+nltk
+python-multipart
+streamlit
+requests
+pydantic
+streamlit
+python-docx
+pymupdf
