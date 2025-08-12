@@ -26,10 +26,3 @@ The app reads configuration from environment variables. You can set these in a `
 API_BASE_URL=http://localhost:8000/api
 OLLAMA_URL=http://localhost:11434
 ```
-
-## Usage
-
-1. Upload text files using the sidebar
-2. Enter questions in the main text area
-3. Adjust the number of context chunks and model as needed
-4. View answers and sources in the response area
