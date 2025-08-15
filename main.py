@@ -335,6 +335,11 @@ Answer concisely and cite your sources.
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Stream chat failed: {str(e)}")
 
+@app.post("/api/clear_store")
+def clear_store():
+    store.clear()
+    return {"status": "cleared"}
+
 @app.get("/api/health")
 async def health_check():
     """Health check endpoint."""
