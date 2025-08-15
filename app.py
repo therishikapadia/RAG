@@ -61,3 +61,11 @@ for chat in st.session_state.chat_history:
     if chat["sources"]:
         st.markdown(f"*Sources:* {', '.join(chat['sources'])}")
     st.markdown("---")
+
+if st.button("Start New Chat"):
+    resp = requests.post(f"{API_URL}/clear_store")
+    if resp.ok:
+        st.session_state.chat_history = []
+        st.success("Started a new chat. Context cleared!")
+    else:
+        st.error("Failed to clear context.")
