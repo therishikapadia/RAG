@@ -35,6 +35,7 @@ def download_nltk_data():
     try:
         import nltk
         nltk.download('punkt', quiet=True)
+        nltk.download('punkt_tab', quiet=True)
         print("✓ NLTK data downloaded")
     except Exception as e:
         print(f"✗ Failed to download NLTK data: {e}")
@@ -64,7 +65,7 @@ def create_env_file():
     if not Path(".env").exists():
         env_content = """# Ollama Configuration
 OLLAMA_URL=http://localhost:11434
-LLAMA_MODEL=llama3.2:latest
+LLM_MODEL=llama3.2:latest
 
 # BGE Model Configuration  
 BGE_MODEL=BAAI/bge-m3

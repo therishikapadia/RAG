@@ -1,0 +1,42 @@
+{
+  "8cdf19fd_0": {
+    "text": "Rishi Kapadia Maninagar, Ahmedabad  9624052569  rishikapadia05gmail.com ï linkedin.comintherishikapadia  https:www.therishikapadia.me Summary AI-focused developer with hands-on experience building LLM-powered applications and API-driven workflows using Python. Skilled in processing documents, integrating AI models, and automating data flows through backend services and APIs. Education LJ Polytechnic Aug. 2021  May 2024 Diploma in Computer Engineering Ahmedabad, Gujarat LJIET Aug. 2024  Present B.Tech in Computer Science and Engineering Ahmedabad, Gujarat Projects NutriMind  LangChain, Tesseract, PostgreSQL, Django  github.com July 2025  Built a system to extract and analyze nutritional information from product labels and identify allergens based on user data.",
+    "metadata": {
+      "source": "Rishi_Kapadia_AI (2).pdf",
+      "chunk_index": 0,
+      "doc_id": "8cdf19fd_0"
+    }
+  },
+  "8cdf19fd_1": {
+    "text": "NutriMind  LangChain, Tesseract, PostgreSQL, Django  github.com July 2025  Built a system to extract and analyze nutritional information from product labels and identify allergens based on user data. Integrated OCR (Tesseract) with LLM-based processing to convert raw label text into structured dietary insights. Developed backend APIs using Django to handle data processing, user inputs, and result generation. RAG QA System  FAISS, Sentence Transformers, PyMuPDF  github.com July 2025  Built a semantic search system for PDFDOCX documents using embeddings and FAISS for efficient similarity-based retrieval. Developed FastAPI endpoints to handle document ingestion, querying, and result generation.",
+    "metadata": {
+      "source": "Rishi_Kapadia_AI (2).pdf",
+      "chunk_index": 1,
+      "doc_id": "8cdf19fd_1"
+    }
+  },
+  "8cdf19fd_2": {
+    "text": "Developed FastAPI endpoints to handle document ingestion, querying, and result generation. Implemented text preprocessing and chunking strategies to improve retrieval quality and context relevance. AI Resume Screening System  FastAPI, Gemini API, PostgreSQL  github.com Feb. 2026  Built an AI-powered resume screening system using Gemini API for evaluating candidates against job requirements. Implemented a vectorless RAG approach by directly passing structured candidate context to the LLM without using vector databases. Developed a preprocessing pipeline to remove sensitive personal information (PII) from resumes before evaluation. Enabled conversational querying over candidate data using LLM-based reasoning across multiple resumes.",
+    "metadata": {
+      "source": "Rishi_Kapadia_AI (2).pdf",
+      "chunk_index": 2,
+      "doc_id": "8cdf19fd_2"
+    }
+  },
+  "8cdf19fd_3": {
+    "text": "Enabled conversational querying over candidate data using LLM-based reasoning across multiple resumes. WordWars  React, Flask, Socket.IO, MongoDB  github.com Jan. 2025  Built a real-time multiplayer game with chat and lobby features using Socket.IO for bidirectional communication. Implemented backend logic in Flask to manage game state, player sessions, and event synchronization. Integrated MongoDB for persistent storage of game data and room management.",
+    "metadata": {
+      "source": "Rishi_Kapadia_AI (2).pdf",
+      "chunk_index": 3,
+      "doc_id": "8cdf19fd_3"
+    }
+  },
+  "8cdf19fd_4": {
+    "text": "Implemented backend logic in Flask to manage game state, player sessions, and event synchronization. Integrated MongoDB for persistent storage of game data and room management. Technical Skills Languages: Python, JavaScript, SQL FrameworksLibraries: React, Express.js, Django, Flask, Socket.IO, LangChain, Tesseract OCR, Scikit-learn CloudTools: Docker, Git, GitHub, Google Colab, Postman Databases: PostgreSQL, MongoDB Certifications Supervised Machine Learning: Regression and Classification (DeepLearning.AI) Advanced Learning Algorithms(DeepLearning.AI) Exploratory Data Analysis for Machine Learning (IBM)",
+    "metadata": {
+      "source": "Rishi_Kapadia_AI (2).pdf",
+      "chunk_index": 4,
+      "doc_id": "8cdf19fd_4"
+    }
+  }
+}

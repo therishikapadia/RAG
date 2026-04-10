@@ -31,12 +31,24 @@ TOP_K = int(os.getenv("TOP_K", "5"))
 CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", "800"))
 CHUNK_OVERLAP = int(os.getenv("CHUNK_OVERLAP", "200"))
 BGE_MODEL = os.getenv("BGE_MODEL", "BAAI/bge-m3")
-LLAMA_MODEL = os.getenv("LLAMA_MODEL", "llama3.2:latest")
+LLM_MODEL = os.getenv("LLM_MODEL", "llama3.2:latest")
 
-# Embedding dimension for bge-m3
-EMBED_DIM = 1024
+# Setup embedding model
+if torch.backends.mps.is_available():
+    device = "mps"
+elif torch.cuda.is_available():
+    device = "cuda"
+else:
+    device = "cpu"
 
-app = FastAPI(title="Streaming RAG - Ollama + bge-m3")
+print(f"Using embedding device: {device}")
+embedder = SentenceTransformer(BGE_MODEL, device=device)
+
+# Dynamically get embedding dimension based on the selected model
+EMBED_DIM = embedder.get_sentence_embedding_dimension()
+print(f"Embedding dimension for {BGE_MODEL}: {EMBED_DIM}")
+
+app = FastAPI(title=f"Streaming RAG - Ollama + {BGE_MODEL}")
 
 # CORS middleware
 app.add_middleware(
@@ -54,18 +66,6 @@ store = FaissStore(
     doc_store_path=DOC_STORE_PATH,
     id_map_path=ID_MAP_PATH
 )
-
-# Setup embedding model
-if torch.backends.mps.is_available():
-    device = "mps"
-elif torch.cuda.is_available():
-    device = "cuda"
-else:
-    device = "cpu"
-
-print(f"Using embedding device: {device}")
-embedder = SentenceTransformer(BGE_MODEL, device=device)
-
 # Pydantic models
 class QueryModel(BaseModel):
     query: str
@@ -117,7 +117,7 @@ def ollama_embeddings(texts: List[str], model: str = BGE_MODEL) -> List[List[flo
     arr = normalize_vectors(arr)
     return arr.tolist()
 
-async def ollama_stream_chat(prompt: str, model: str = LLAMA_MODEL, temperature: float = 0.2):
+async def ollama_stream_chat(prompt: str, model: str = LLM_MODEL, temperature: float = 0.2):
     """Stream chat responses from Ollama."""
     url = f"{OLLAMA_URL}/api/chat"
     payload = {
@@ -252,7 +252,7 @@ Answer concisely and cite your sources.
         async with httpx.AsyncClient(timeout=120) as client:
             url = f"{OLLAMA_URL}/api/chat"
             payload = {
-                "model": LLAMA_MODEL, 
+                "model": LLM_MODEL, 
                 "messages": [{"role": "user", "content": prompt}], 
                 "stream": False
             }
@@ -313,7 +313,7 @@ Answer concisely and cite your sources.
         async def event_generator():
             try:
                 # Stream tokens from Ollama
-                async for chunk in ollama_stream_chat(prompt, model=LLAMA_MODEL):
+                async for chunk in ollama_stream_chat(prompt, model=LLM_MODEL):
                     if chunk:
                         data = chunk.replace("\n", "\\n")
                         yield f"data: {data}\n\n"
